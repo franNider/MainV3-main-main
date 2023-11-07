@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_06_210024) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_06_222026) do
+  create_table "chequeos", force: :cascade do |t|
+    t.string "descripcion"
+    t.datetime "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "dog_id", null: false
+    t.index ["dog_id"], name: "index_chequeos_on_dog_id"
+  end
+
   create_table "dogs", force: :cascade do |t|
     t.string "nombre"
     t.string "raza"
@@ -81,6 +90,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_06_210024) do
     t.index ["dog_id"], name: "index_vacunas_on_dog_id"
   end
 
+  add_foreign_key "chequeos", "dogs"
   add_foreign_key "dogs", "users"
   add_foreign_key "profiles", "perros"
   add_foreign_key "profiles", "users"

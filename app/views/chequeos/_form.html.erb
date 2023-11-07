@@ -1,32 +1,32 @@
-<%= form_with(model: vacuna) do |form| %>
-  <% if vacuna.errors.any? %>
+<%= form_with(model: chequeo) do |form| %>
+  <% if chequeo.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(vacuna.errors.count, "error") %> prohibited this vacuna from being saved:</h2>
+      <h2><%= pluralize(chequeo.errors.count, "error") %> prohibited this chequeo from being saved:</h2>
 
       <ul>
-        <% vacuna.errors.each do |error| %>
+        <% chequeo.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-   <div>
+  <div>
     <%= form.label :dog_id, "Perro" %>
     <%= form.collection_select(:dog_id, current_user.dog.all, :id, :nombre, prompt: "Selecciona un perro") %>
   </div>
 
   <div>
-    <%= form.label :nombre, style: "display: block" %>
-    <%= form.text_field :nombre %>
+    <%= form.label :descripcion, style: "display: block" %>
+    <%= form.text_field :descripcion %>
   </div>
 
   <div>
     <%= form.label :fecha, style: "display: block" %>
     <%= form.datetime_field :fecha %>
   </div>
-  
+
   <div>
-    <%= form.submit "Cargar vacuna" %>
+    <%= form.submit "cargar chequeo" %>
   </div>
 <% end %>

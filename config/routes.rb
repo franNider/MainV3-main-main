@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  resources :chequeos
   resources :vacunas
   patch '/profiles/:id/edit', to: 'profiles#update'  # Cambié 'profiles/:id' a '/profiles/:id'
   get '/profiles/:id/edit', to: 'profiles#edit', as: 'edit_profile'
@@ -24,4 +26,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :profiles, only: [:index, :edit, :update]
   resources :dogs
+  resources :dogs do
+    get 'verFichaMedica', on: :member
+  end
+  
 end

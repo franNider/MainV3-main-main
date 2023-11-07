@@ -32,12 +32,14 @@
   <%= link_to new_dog_path, { remote: true, class: "btn btn-info" }  do %>
     <span class="fas fa-plus-square" ></span>
   <% end %>
+    <%= link_to "Cargar Vacunas", new_vacuna_path, html_options = {class: "btn btn-info btn-xs", remote: true} %>
+    <%= link_to "Cargar Chequeos", new_chequeo_path, html_options = {class: "btn btn-info btn-xs", remote: true} %>
 </div>
 <br>
 <div class="card shadow mb-4">
 <div class="card-body">
     <div class="table-responsive">
-    <table class="table table-bordered" id="tablaProductos" width="100%" cellspacing="0">
+    <table class="table table-bordered" id="tablaPerros" width="100%" cellspacing="0">
         <thead>
         <tr>
             <th>Nombre</th>
@@ -58,7 +60,8 @@
                 <td><%= d.edad %></td>
                 <td><%= d.peso %></td>
                 <td>
-                <%= link_to "Cargar Vacunas", new_vacuna_path(d), html_options = {class: "btn btn-info btn-xs", remote: true} %>
+                  <%= link_to "ver ficha medica", verFichaMedica_dog_path(d), html_options = {class: "btn btn-info btn-xs", remote: true} %>
+                  
                 </td>
               </tr>
             <% end %>

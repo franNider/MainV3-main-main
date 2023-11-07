@@ -1,6 +1,7 @@
 class Dog < ApplicationRecord
     belongs_to :user, default: -> {Current.user}
     has_many :vacuna
+    has_many :chequeo
 
     validates :nombre, presence: true
 

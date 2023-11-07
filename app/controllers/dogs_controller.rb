@@ -5,9 +5,18 @@ class DogsController < ApplicationController
     end
 
     def show
+      
         @dogs = current_user.dog.all
+
+        respond_to do |format|
+          format.html # show.html.erb
+          format.json { render json: @dogs }
+        end
     end
 
+    def verFichaMedica
+      @dog = current_user.dog.find(params[:id])
+    end
 
     def new
       @dog= Dog.new
