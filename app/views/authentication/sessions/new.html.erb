@@ -1,4 +1,9 @@
 <%= form_with(url: sessions_path) do |form| %>
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
 
  <div class="form-group">
   <div class="form-group col-md-2">
@@ -12,7 +17,8 @@
   </div>
 
   <div>
-    <%= form.submit "Guardar", class: "btn btn-info" %>
+    <%= form.submit "Iniciar sesion", class: "btn btn-info" %>
   </div>
 </div>
+
 <% end %>

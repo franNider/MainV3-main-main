@@ -10,6 +10,7 @@ class Authentication::SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to "/main/index" , notice: "Sesion iniciada"
         else
+            flash[:error] = "Usuario inválido. Verifica tu DNI y contraseña"
             redirect_to new_session_path 
         end
     end

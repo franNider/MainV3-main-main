@@ -1,8 +1,7 @@
 <%= form_with(model: chequeo) do |form| %>
   <% if chequeo.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(chequeo.errors.count, "error") %> prohibited this chequeo from being saved:</h2>
-
+     
       <ul>
         <% chequeo.errors.each do |error| %>
           <li><%= error.full_message %></li>
